@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+	<OutputPath>ShibaBot\</OutputPath>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>ShibaBot</RootNamespace>
+  </PropertyGroup>
+	
+
+	<Target Name="GenerateConfig" BeforeTargets="Build">
+		<PropertyGroup>
+			<ConfigFile>cconfig.json</ConfigFile>
+		</PropertyGroup>
+		<WriteLinesToFile File="$(OutputPath)\$(ConfigFile)" Lines="{ &quot;TelegramBotToken&quot;: &quot;YOUR-API-BOT-TOKEN&quot; }" Overwrite="true" Encoding="utf-8" />
+	</Target>
+
+  <ItemGroup>
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="Telegram.Bot" Version="19.0.0" />
+  </ItemGroup>
+
+</Project>
